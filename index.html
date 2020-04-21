@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Jeu du Super Simon</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/animate.css" />
+        <script src="https://kit.fontawesome.com/d0a00d2ba3.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="welcome">
+                <h3 class="text-center">Bienvenue sur le jeu Super Simon</h3>
+                <br />
+                <hr />
+                <br />
+                <p>Ce jeu a été conçu dans le cadre d'un devoir étudiant, il reproduit le jeu de société électronique <b>Super Simon</b>.</p>
+                <br /><br />
+                <button class="btn btn-primary" id="start">Accéder au jeu</button>
+            </div>
+            <div id="gameinfo">
+                <p>Score : <span id="score">0</span></p>
+                <p>Round : <span id="round">0</span></p>
+                <br />
+                <button class="btn btn-success" id="rules"><i class="fas fa-question"></i></button>
+            </div>
+            <div id="turn">
+                <p>C'est votre tour !</p>
+            </div>
+            <div id="game">
+                <div class="top-row">
+                    <div id="blue" class="gamebutton" onClick="addToPlayer(this.id)"><p>RE</p></div>
+                </div>
+                <div class="middle-row">
+                    <div id="green" class="gamebutton" onClick="addToPlayer(this.id)"><p>DO</p></div>
+                    <button class="btn btn-primary" id="reset" onClick="resetGame()"><i class="fas fa-redo"></i></button>
+                    <div id="red" class="gamebutton" onClick="addToPlayer(this.id)"><p>MI</p></div>
+                </div>
+                <div class="bottom-row">
+                    <div id="yellow" class="gamebutton" onClick="addToPlayer(this.id)"><p>FA</p></div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal des règles -->
+        <div id="rulesModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Règles du jeu</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Lors du lancement d'une partie, une suite de trois couleurs choisies aléatoirement vont s'illuminer, tout en produisant une note. Le
+                        joueur devra reconstituer cette suite de couleur dans le même ordre en cliquant sur la couleur correspondant pour passer au round
+                        suivant. À chaque nouveau round le joueur devra se souvenir d'une note supplémentaire. De plus, pendant les 8 prochains round le temps
+                        entre chaque note sera réduit pour augmenter la difficulté du jeu. Au bout de 8 round, la vitesse sera stabilisée.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal des règles -->
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Game Over</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Simon a gagné la partie !</p>
+                    <p>Tours validés : <span id="roundv"></span></p>
+                    <p>Clics validés : <span id="clickv"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Rejouer !</button>
+                </div>
+            </div>
+        </div>
+        <script src="/js/main.js"></script>
+    </body>
+</html>
